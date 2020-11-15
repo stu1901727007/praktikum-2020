@@ -1,0 +1,53 @@
+<div class="col-md-11 m-auto">
+    <div class="search row">
+        <div class="col-md-12 mb-3">
+            <h4 class="mb-2" data-aos="fade-down">Търсене</h4>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="50">
+            <label>Критерий</label>
+            <input name="search" class="form-control" type="text" placeholder="Въведи какво търсиш ..."/>
+        </div>
+
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="50">
+            <label>Център на NASA</label>
+            <select name="center" class="form-control">
+                <option></option>
+                {{#each centers}}
+                    <option value="{{@key}}">{{this}}</option>
+                {{/each}}
+            </select>
+        </div>
+
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="50">
+            <label>В диапазона</label>
+            <div id="year-range" class="mt-2"></div>
+            <div class="text-center" id="ranges"></div>
+            <input name="years-from" id="years-from" type="hidden"/>
+            <input name="years-to" id="years-to" type="hidden"/>
+        </div>
+
+        <div class="col-md-6 mt-2" data-aos="fade-up" data-aos-delay="150">
+            <div class="filters ml-3">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" checked name="media_type[]" type="checkbox"
+                           id="inlineCheckbox1" value="image">
+                    <label class="form-check-label" for="inlineCheckbox1">Изображения</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" checked name="media_type[]" type="checkbox"
+                           id="inlineCheckbox2" value="video">
+                    <label class="form-check-label" for="inlineCheckbox2">Видео</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" checked name="media_type[]" type="checkbox"
+                           id="inlineCheckbox3" value="audio">
+                    <label class="form-check-label" for="inlineCheckbox3">Аудио</label>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-6 mt-2 text-right" data-aos="fade-up" data-aos-delay="200">
+            <a href="#" class="btn btn-primary btn-search">Търси</a>
+        </div>
+    </div>
+</div>

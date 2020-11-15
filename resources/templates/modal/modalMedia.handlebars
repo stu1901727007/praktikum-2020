@@ -1,0 +1,76 @@
+<div class="modal fade bd-example-modal-lg" id="mediaModal" tabindex="-1" role="dialog"
+     aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">
+                    {{item.title}}
+
+                    {{#ifeq item.media_type 'image'}}
+                        <span class="badge badge-light">Албум</span>
+                    {{/ifeq}}
+
+                    {{#ifeq item.media_type 'audio'}}
+                        <span class="badge badge-secondary">Аудио</span>
+                    {{/ifeq}}
+
+                    {{#ifeq item.media_type 'video'}}
+                        <span class="badge badge-info">Видео</span>
+                    {{/ifeq}}
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <div class="row">
+                    <div class="img-container col-md-6">
+
+                        {{#ifeq item.media_type 'image'}}
+                            <img class="img-fluid" src="{{item.image}}"/>
+                        {{/ifeq}}
+
+                        {{#ifeq item.media_type 'audio'}}
+                            <audio controls autoplay class="w-100 mt-3">
+                                <source src="{{item.media}}" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                        {{/ifeq}}
+
+                        {{#ifeq item.media_type 'video'}}
+                            <div class="embed-responsive embed-responsive-16by9">
+                                <iframe class="embed-responsive-item" src="{{item.media}}" allowfullscreen></iframe>
+                            </div>
+                        {{/ifeq}}
+
+                    </div>
+                    <div class="caption col-md-6">
+
+                        <div class="inner full-text">
+                            {{{ item.description_full }}}
+                        </div>
+
+                        <div class="inner mt-3">
+                            <strong>Публикувано на</strong> : {{item.date_created}}
+                        </div>
+
+
+                        <div class="inner mt-3">
+                            <strong>Център</strong> : {{item.center}}
+                        </div>
+
+
+                        <div class="inner mt-3">
+                            <strong>Ключови думи</strong> : {{item.keywords}}
+                        </div>
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
